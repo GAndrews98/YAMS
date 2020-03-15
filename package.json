@@ -1,0 +1,31 @@
+{
+  "name": "yams",
+  "version": "1.0.0",
+  "description": "Yet Another Messaging Service",
+  "main": "src/server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.7.3",
+    "mongodb": "^3.5.5",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GAndrews98/YAMS.git"
+  },
+  "author": "Gatlin Andrews, Ryan Russell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GAndrews98/YAMS/issues"
+  },
+  "homepage": "https://github.com/GAndrews98/YAMS#readme"
+}
