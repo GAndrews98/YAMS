@@ -30,6 +30,11 @@ app.get('/', function (req, res) {
     res.status(200).render('index');
 });
 
+app.get('/login', function(req, res) {
+    console.log("Sending login page");
+    res.status(200).render('login');
+});
+
 //404 handler
 app.get('*', function (req, res) {
     console.log("Sending 404");
