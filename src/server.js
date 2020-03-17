@@ -25,12 +25,18 @@ app.use(express.json({limit: '1mb'}));
 app.engine("hbs", exphbs());
 app.set("view engine","hbs");
 
+app.get('/', function (req, res) {
+    console.log("Sending home page");
+    res.status(200).render('index');
+});
+
 //404 handler
 app.get('*', function (req, res) {
     console.log("Sending 404");
     // res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
     res.status(404).render("404");
 });
+
 
 MongoClient.connect(mongoUrl, {useNewUrlParser: true}, function (err,client){
   if(err)
