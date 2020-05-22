@@ -13,3 +13,70 @@
     margin-left: -12.5%;
     margin-top: -12.5%; */
 }
+
+#login {
+    position: absolute;
+    justify-content: center;
+    top: 20%;
+    left: 36%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar-items {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50
+}
+
+#account {
+    float: right;
+}
+
+#message-container {
+  width: 80%;
+  max-width: 1200px;
+}
+
+#message-container div {
+  background-color: #CCC;
+  padding: 5px;
+}
+
+#message-container div:nth-child(2n) {
+  background-color: #FFF;
+}
+
+#send-container {
+  position: fixed;
+  padding-bottom: 30px;
+  bottom: 0;
+  background-color: white;
+  max-width: 1200px;
+  width: 80%;
+  display: flex;
+}
+
+#message-input {
+  flex-grow: 1;
+}

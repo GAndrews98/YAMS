@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yet Another Messaging Service</title>
+
+    <!-- This is a 3rd-party stylesheet to make available the font families to be used for this page ("Roboto" and "Roboto Slab"). -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
+
+    <!-- This 3rd party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="/index.js" charset="utf-8" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.runtime.min.js" charset="utf-8" defer></script>
+    <script src="/compiled.js" charset="utf-8" defer></script>
+  </head>
+  <body id="body">
+
+      <!-- navbar.hbs -->
+      <ul id="nav-bar">
+          <li><a value="home" class="active navbar-items" id="homeButton" href="/">Home</a></li>
+          <li><a value="conversations" class="navbar-items" id="convoButton" href="/conversations.html">Conversations</a></li>
+          <li><a value="friends" class="navbar-items" id="friendsButton" href="#">Friends</a></li>
+          <li><a value="account" class="navbar-items" id="accountButton" href="/login.html">Account</a></li>
+              <!-- Make accounts drop down arrow -->
+      </ul>
+
+      <!-- index.hbs -->
+      <div class="login-container">
+          <img id="YAMS-logo" src="/assets/YAMS-logo.jpg"/>
+      </div>
+
+      <!-- login.hbs -->
+      <!-- <div id="login">
+
+        <h1>Yet Another Messaging Service</h1>
+
+        <div class="login-box shadow">
+         <form action="/login" method='post' class='login-form'>
+
+           <i id='username-input-icon' class='icon-user'></i>
+           <input id="username" autocomplete="off" placeholder="Username" class='dark' type="text" name="username">
+
+           <i id='password-input-icon' class='icon-lock'></i>
+           <input id="password" autocomplete="off" placeholder="Password" class='dark' type="password" name="password">
+
+          <input type="submit" class='button large' value="Please, login to continue.">
+
+         </form>
+
+        </div>
+
+         <div class="login-footer">
+           YAMS is a free messaging service! Enjoy!<br />
+         </div>
+
+      </div> -->
+
+  </body>
+</html>
