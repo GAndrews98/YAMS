@@ -15,16 +15,16 @@
 
     <script src="/index.js" charset="utf-8" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.runtime.min.js" charset="utf-8" defer></script>
-    <script src="/compiled.js" charset="utf-8" defer></script>
   </head>
   <body id="body">
 
       <!-- navbar.hbs -->
       <ul id="nav-bar">
-          <li><a value="home" class="active navbar-items" id="homeButton" href="/">Home</a></li>
+          <li><a value="home" class="active navbar-items" id="homeButton" href="/index.html">Home</a></li>
           <li><a value="conversations" class="navbar-items" id="convoButton" href="/conversations.html">Conversations</a></li>
           <li><a value="friends" class="navbar-items" id="friendsButton" href="#">Friends</a></li>
           <li><a value="account" class="navbar-items" id="accountButton" href="/login.html">Account</a></li>
+          <li id="user-logged-in" class="navbar-items" href="/login.html"></li>
               <!-- Make accounts drop down arrow -->
       </ul>
 

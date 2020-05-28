@@ -1,3 +1,10 @@
+/* body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+} */
+
 #YAMS-logo {
     /* width: 25%;
     height: 25%; */
@@ -41,6 +48,14 @@ li a {
     text-decoration: none;
 }
 
+#user-logged-in {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
 li a:hover:not(.active) {
     background-color: #111;
 }
@@ -54,8 +69,12 @@ li a:hover:not(.active) {
 }
 
 #message-container {
-  width: 80%;
-  max-width: 1200px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
 }
 
 #message-container div {
@@ -79,4 +98,17 @@ li a:hover:not(.active) {
 
 #message-input {
   flex-grow: 1;
+}
+
+#wrong-or-right-user {
+    color: red;
+}
+
+#new-conversation {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    float: right;
 }

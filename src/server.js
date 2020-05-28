@@ -26,42 +26,94 @@ app.use(express.static('public'));
 app.use(express.json({limit: '1mb'}));
 
 const userInfo = [];
+var roomID = 0;
 
 app.engine("hbs", exphbs());
 app.set("view engine","hbs");
 
 app.get('/userInfo/register', (req, res) => {
     res.json(userInfo);
-})
+});
 
 app.post('/userInfo/register', async (req, res) => {
     try {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        const user = {email: req.body.email, username: req.body.username, password: hashedPassword};
+        if(userInfo.length != 0) {
+            for(var i = 0; i < userInfo.length; i++) {
+                if(req.body.username === userInfo[i].username) {
+                    return res.status(400).send('User already exists, please try another username');
+                }
+            }
+        }
+        const user = {email: req.body.email, username: req.body.username, password: hashedPassword, messages: [], rooms: []};
         userInfo.push(user);
-        console.log(userInfo);
         res.status(201).send();
     } catch {
         res.status(500).send();
     }
-})
+});
 
 app.post('/userInfo/login', async (req, res) => {
-    userInfo.push(req.body);
-    console.log(userInfo);
-    // const user = users.find(user => user.name === req.body.name);
-    // if(user == null) {
-    //     return res.status(400).send('Connot find user')
-    // } try {
-    //     if (await bcrypt.compare(req.body.password, user.password)) res.send('Success');
-    //     else res.send('Not Allowed');
-    // } catch {
-    //     res.status(500).send();
-    // }
+    const user = userInfo.find(user => user.username === req.body.username);
+    if(user == null) {
+        return res.status(400).send('Connot find user')
+    } try {
+        if (await bcrypt.compare(req.body.password, user.password)) {
+            res.status(201)
+            res.send('Success');
+            console.log("Success");
+        }
+        else {
+            res.status(400);
+            res.send('Not Allowed');
+            console.log("Not Allowed");
+        }
+    } catch {
+        res.status(500).send();
+    }
+});
+
+app.post('/message', (req, res) => {
+    for(var i = 0; i < userInfo.length; i++) {
+        if(userInfo[i].username === req.body.user)
+            userInfo[i].messages.push(req.body.message);
+    }
+});
+
+app.post('/userInfo/rooms', (req, res) => {
+    var newConvoUserIndex = 0, oldConvoUserIndex = 0, match = false, userExists = true;
+    for(var i = 0; i < userInfo.length; i++) {
+        if(userInfo[i].username === req.body.person)
+            newConvoUserIndex = i;
+        if(userInfo[i].username === req.body.starterUser)
+            oldConvoUserIndex = i;
+        if(userInfo[i].username !== req.body.person)
+            userExists = false;
+    }
+    for(var i = 0; i < userInfo[newConvoUserIndex].rooms.length; i++) {
+        for(var j = 0; j < userInfo[oldConvoUserIndex].rooms.length; j++) {
+            if(userInfo[newConvoUserIndex].rooms[i] == userInfo[oldConvoUserIndex].rooms[j]) {
+                console.log("Conversation already exists with person");
+                match = true;
+                return;
+            }
+        }
+    }
+    if(match === false && userExists === true) {
+        userInfo[newConvoUserIndex].rooms.push(roomID);
+        userInfo[oldConvoUserIndex].rooms.push(roomID);
+        roomID++;
+    } else {
+        console.log("User does not exist");
+    }
+});
+
+io.on("connection", () => {
+    console.log("a user is connected");
 })
 
-// app.get('/', function (req, res) {
+// app.get('/index.html', function (req, res) {
 //     console.log("Sending home page");
 //     res.status(200).render('index');
 // });
@@ -91,3 +143,5 @@ MongoClient.connect(mongoUrl, {useNewUrlParser: true}, function (err,client){
   users = database.collection('users');
   app.listen(port, () => console.log('Listening on port ', port));
 });
+
+// app.listen(port, () => console.log('Listening on port', port));

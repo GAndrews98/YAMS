@@ -16,10 +16,11 @@
     <body>
 
         <ul id="nav-bar">
-            <li><a value="home" class="navbar-items" id="homeButton" href="/">Home</a></li>
+            <li><a value="home" class="navbar-items" id="homeButton" href="/index.html">Home</a></li>
             <li><a value="conversations" class="navbar-items" id="convoButton" href="/conversations.html">Conversations</a></li>
             <li><a value="friends" class="navbar-items" id="friendsButton" href="#">Friends</a></li>
             <li><a value="account" class="active navbar-items" id="accountButton" href="/login.html">Account</a></li>
+            <li id="user-logged-in" class="navbar-items" href="/login.html"></li>
                 <!-- Make accounts drop down arrow -->
         </ul>
 
@@ -31,13 +32,13 @@
            <!-- <form action="/userInfo/login" method='POST' class='login-form'> -->
 
             <i id='email-input-icon' class='icon-user'></i>
-            <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" class="dark">
+            <input type="text" name="email" id="register-email" autocomplete="off" placeholder="Email" class="dark">
 
             <i id='username-input-icon' class='icon-user'></i>
-            <input id="username" autocomplete="off" placeholder="Username" class='dark' type="text" name="name">
+            <input id="register-username" autocomplete="off" placeholder="Username" class='dark' type="text" name="name">
 
             <i id='password-input-icon' class='icon-lock'></i>
-            <input id="password" autocomplete="off" placeholder="Password" class='dark' type="password" name="password">
+            <input id="register-password" autocomplete="off" placeholder="Password" class='dark' type="password" name="password">
 
             <input id="register-button" type="submit" class='button large' value="Please, login to continue.">
 
@@ -46,6 +47,7 @@
           </div>
 
            <div class="login-footer">
+               <p id="user-taken-or-not" style="color: red"></p>
                <br>
              YAMS is a free messaging service! Enjoy!
            </div>

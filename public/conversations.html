@@ -10,19 +10,25 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
 
         <link rel="stylesheet" href="/style.css">
+        <script type="text/javascript" src="index.js"></script>
+        <script src=”/socket.io/socket.io.js”></script>
     </head>
     <body>
         <ul id="nav-bar">
-            <li><a value="home" class="navbar-items" id="homeButton" href="/">Home</a></li>
+            <li><a value="home" class="navbar-items" id="homeButton" href="/index.html">Home</a></li>
             <li><a value="conversations" class="active navbar-items" id="convoButton" href="/conversations.html">Conversations</a></li>
             <li><a value="friends" class="navbar-items" id="friendsButton" href="#">Friends</a></li>
             <li><a value="account" class="navbar-items" id="accountButton" href="/login.html">Account</a></li>
+            <li id="user-logged-in" class="navbar-items" href="/login.html"></li>
+            <li id="new-conversation" class="navbar-items">New Conversation: <button type="button" name="newConversation" id="new-conversation-button">+</button></li>
                 <!-- Make accounts drop down arrow -->
         </ul>
         <div id="message-container"></div>
         <form id="send-container">
-            <input type="text" id="message-input">
-            <button type="submit" id="send-button">Send</button>
+            <div id="send-container">
+                <input type="text" id="message-input" autocomplete="off">
+                <button type="submit" id="send-button">Send</button>
+            </div>
         </form>
     </body>
 </html>

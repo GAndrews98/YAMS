@@ -16,10 +16,11 @@
     <body>
 
         <ul id="nav-bar">
-            <li><a value="home" class="navbar-items" id="homeButton" href="/">Home</a></li>
+            <li><a value="home" class="navbar-items" id="homeButton" href="/index.html">Home</a></li>
             <li><a value="conversations" class="navbar-items" id="convoButton" href="/conversations.html">Conversations</a></li>
             <li><a value="friends" class="navbar-items" id="friendsButton" href="#">Friends</a></li>
             <li><a value="account" class="active navbar-items" id="accountButton" href="/login.html">Account</a></li>
+            <li id="user-logged-in" class="navbar-items" href="/login.html"></li>
                 <!-- Make accounts drop down arrow -->
         </ul>
 
@@ -31,10 +32,10 @@
            <!-- <form action="/userInfo/login" method='POST' class='login-form'> -->
 
              <i id='username-input-icon' class='icon-user'></i>
-             <input id="username" autocomplete="off" placeholder="Username" class='dark' type="text" name="name">
+             <input id="login-username" autocomplete="off" placeholder="Username" class='dark' type="text" name="name">
 
              <i id='password-input-icon' class='icon-lock'></i>
-             <input id="password" autocomplete="off" placeholder="Password" class='dark' type="password" name="password">
+             <input id="login-password" autocomplete="off" placeholder="Password" class='dark' type="password" name="password">
 
             <input id="login-button" type="submit" class='button large' value="Please, login to continue.">
 
@@ -43,12 +44,13 @@
           </div>
 
            <div class="login-footer">
+               <p id="wrong-or-right-user"></p>
                <br>
              YAMS is a free messaging service! Enjoy!
            </div>
            <div class="register-here">
                <br>
-               If you haven't created an account before, click this <a href="/register.html">here</a>
+               If you haven't created an account before, click <a href="/register.html">here</a>
            </div>
 
         </div>
